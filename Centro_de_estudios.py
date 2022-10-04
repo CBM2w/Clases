@@ -35,9 +35,9 @@ alumnos_en_asignatura = {}
 
 for e in notas:
     if e[ASIGNATURA] in alumnos_en_asignatura:
-        alumnos_en_asignatura[e[ASIGNATURA]] += e[ALUMNO]  # DUDA
+        alumnos_en_asignatura[e[ASIGNATURA]] += e[ALUMNO]+" "  
     else:
-        alumnos_en_asignatura[e[ASIGNATURA]] = e[ALUMNO]
+        alumnos_en_asignatura[e[ASIGNATURA]] = e[ALUMNO]+" "
 
 print(alumnos_en_asignatura)
 print()
