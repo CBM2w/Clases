@@ -44,4 +44,65 @@ def mayusculas(cadena):
 
     return cadena_act
 
-print(mayusculas('HolaSoyCarla'))
+#print(mayusculas('HolaSoyCarla'))
+
+def crear_hashtag(cadena):
+    hashtag = '#'
+
+    if cadena[0].isupper():
+        hashtag += cadena[0]
+    else:
+        hashtag += cadena[0].upper()
+
+    for i in range(1,len(cadena)):
+        if cadena[i].islower() and cadena[i] != ' ' and cadena[i-1] != ' ':
+            hashtag += cadena[i]
+        elif cadena[i] != ' ' and cadena[i].isupper() and cadena[i-1] != ' ':
+            hashtag += cadena[i].lower()
+        elif cadena[i] != ' ' and cadena[i].isupper() and cadena[i-1] == ' ':
+            hashtag += cadena[i]
+        elif cadena[i] != ' ' and cadena[i].islower() and cadena[i-1] == ' ':
+            hashtag += cadena[i].upper()
+    print(hashtag)
+    return hashtag
+
+#crear_hashtag('Hola Buenas tArdes')
+    
+
+def num_diferente(array):
+    num_dif = 0
+    dic = {}
+
+    for num in array:
+        dic[num] = array.count(num)
+    for num in array:
+        if dic[num] == 1:
+            num_dif = num
+
+    return dic,num_dif
+
+#print(num_diferente([1,1,1,2,1,1,1,1]))
+
+def num_par_impar(array):
+    num_dif = 0
+    dic = {}
+
+    for num in array:
+        rest = num%2
+        if str(rest) in dic:
+            dic[str(rest)] += 1
+        else:
+            dic[str(rest)] = 1
+        
+    print(dic)
+    for num in array:
+        if dic["0"] == 1:
+            if num % 2 == 0:
+                num_dif = num
+        elif dic["1"] == 1:
+            if num % 2 == 1:
+                num_dif = num
+    
+    return dic,num_dif
+
+print(num_par_impar([1,1,1,2,3,3,3]))
