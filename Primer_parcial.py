@@ -81,4 +81,25 @@ def pelis_2015_7():
     return resultado
 
 # 5.
+actores = set()
 
+for nombre in peliculas:
+    actores = actores | peliculas[nombre][ACTORES]
+
+def valoracion_maxima(actor):
+    val_max = -1
+
+    for nombre in peliculas:
+        valoracion = peliculas[nombre][VALORACION]
+        if actor in actores and valoracion > val_max:
+            val_max = valoracion
+    
+    return val_max
+
+resultado = []
+
+for actor in actores:
+    valoracion_max = valoracion_maxima(actor)
+    resultado.append((actor,valoracion_max))
+
+print(resultado)
