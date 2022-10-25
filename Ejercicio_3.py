@@ -1,6 +1,3 @@
-from symbol import break_stmt
-
-
 def validar():
     nombre_usuario = input('Introduce nombre de usuario: ')
 
@@ -10,8 +7,8 @@ def validar():
     letras = []
     for l in str:
         letras.append(l)
-
-    while True:
+    cond=True
+    while cond:
         if len(nombre_usuario) < 6 or len(nombre_usuario) > 12:
             print('El nombre debe tener entre 6 y 12 caracteres.')
             nombre_usuario = input('Introduce nombre de usuario: ')
@@ -21,8 +18,8 @@ def validar():
                     print('Los caracteres solo pueden ser números o letras')
                     nombre_usuario = input('Introduce nombre de usuario: ')
                 else:
-                    return nombre_usuario 
-                    break
+                    cond=False
+    return nombre_usuario
 
 print(validar())
 
