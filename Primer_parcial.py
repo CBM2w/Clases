@@ -91,7 +91,7 @@ def valoracion_maxima(actor):
 
     for nombre in peliculas:
         valoracion = peliculas[nombre][VALORACION]
-        if actor in actores and valoracion > val_max:
+        if actor in peliculas[nombre][ACTORES] and valoracion > val_max:
             val_max = valoracion
     
     return val_max
