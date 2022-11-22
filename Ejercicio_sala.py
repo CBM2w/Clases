@@ -85,3 +85,36 @@ def primera_libre(tipo):
                 return i,j
                 
 #print(primera_libre(2))
+
+def dos_asientos(tipo):
+
+     for i in range(NUM_FILAS):
+        for j in range(NUM_COLUMNAS):
+            if j+1 < NUM_COLUMNAS:
+                if libre(i,j,sala_ocupación) and libre(i,j+1,sala_ocupación):
+                    if sala_tipos[i][j]==tipo and sala_tipos[i][j+1]==tipo:
+                        return (i,j), (i,j+1)
+            else:
+                print('Fila llena')
+
+#print(dos_asientos(2))
+
+def ocupar_dos_asientos(tipo):
+    asientos = dos_asientos(tipo)
+
+    for i in range(len(asientos)):
+        ocupa(asientos[i][0], asientos[i][1], sala_ocupación)
+    
+def recaudacion():
+    dinero = 0
+
+    for i in range(NUM_FILAS):
+        for j in range(NUM_COLUMNAS):
+            if sala_tipos[i][j] == 0:
+                dinero += precio_butaca[0]
+            elif sala_tipos[i][j] == 1:
+                dinero += precio_butaca[1]
+            else:
+                dinero += precio_butaca[2]
+
+    return dinero
